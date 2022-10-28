@@ -9,23 +9,22 @@
       }
     },
     "variables": {
-        "vnetName": "myVNETVariables",
+        "vnetName": "dev-vnet-vb",
         "vnetAddressPrefix": "10.0.0.0/16",
         "subnet1Prefix": "10.0.0.0/24",
-        "subnet1Name": "SubnetVariables",
+        "subnet1Name": "subnetVB",
         "location": "Canada Central"
     },
     "resources": [
       {
         "type": "Microsoft.Network/virtualNetworks",
         "apiVersion": "2021-08-01",
-        "name": "[variables('vnetName')]",
+        "name":"[variables('vnetName')]",
         "location": "[variables('location')]",
         "properties": {
           "addressSpace": {
             "addressPrefixes": [
-              "[variables('vnetAddressPrefix')]"
-            ]
+              "[variables('vnetAddressPrefix')]"            ]
           },
           "subnets": [
             {

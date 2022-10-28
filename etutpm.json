@@ -15,35 +15,53 @@
         "metadata": {
           "description": "Location for all resources."
         }
+      },
+      "vnetName": {
+        "type": "string",
+        "metadata": {
+            "description": "description"
+        }
+      },
+      "vnetAddressPrefix": {
+        "type": "string",
+        "metadata": {
+            "description": "description"
+        }
+      },
+      "subnet1Prefix": {
+        "type": "string",
+        "metadata": {
+            "description": "description"
+        }
+      },
+      "subnet1Name": {
+        "type": "string",
+        "metadata": {
+            "description": "Subnet Name"
+        }
       }
-    },
-    "variables": {
-        "vnetName": "myVNET",
-        "vnetAddressPrefix": "10.0.0.0/16",
-        "subnet1Prefix": "10.0.0.0/24",
-        "subnet1Name": "Subnet1Name"
     },
     "resources": [
       {
         "type": "Microsoft.Network/virtualNetworks",
         "apiVersion": "2021-08-01",
-        "name": "[variables('vnetName')]",
-        "location": "[parameters('location')]",
+        "name": "[parameters('vnetName')]",
+        "location":"[parameters('location')]",
         "properties": {
           "addressSpace": {
             "addressPrefixes": [
-              "[variables('vnetAddressPrefix')]"
+             "[parameters('vnetAddressPrefix')]"
             ]
           },
           "subnets": [
             {
-              "name": "[variables('subnet1Name')]",
+              "name": "[parameters('subnet1Name')]",
               "properties": {
-                "addressPrefix": "[variables('subnet1Prefix')]"
+                "addressPrefix": "[parameters('subnet1Prefix')]"
               }
             }
           ]
         }
-      }
+      } 
     ]
   }
